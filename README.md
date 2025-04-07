@@ -146,14 +146,12 @@ Bu dosya, veri işleme sırasında kullanılan yardımcı fonksiyonları içerir
 
 ##  Kurulum ve Çalıştırma
 
-### 1. Repozitoriyi Klonlayın
-
+### 1. Reposu Klonlama
 git clone https://github.com/busraeskara/SalesPredictProject.git 
 
 cd SalesPredictProject
 
 ### 2. Ortamı Hazırlama
-
 Python 3.9+ yüklü olmalıdır.
 
 python -m venv venv
@@ -162,16 +160,20 @@ source venv/bin/activate  # Windows: venv\Scripts\activate
 
 pip install -r requirements.txt
 
-### 3. Veriyi Yükleme ve Önişlem
-
-main.py dosyasında veri keşfi, ön işleme ve model eğitimi yapılmaktadır.
-
-Model dosyası decision_tree_model.pkl olarak kaydedilir.
+### 3. Veritabanını Kurma
+PostgreSQL üzerinde bir veritabanı oluştur ve bağlantı bilgilerini .env dosyasına ekle:
+```env
+db_user = "postgres"
+db_password = "yourpassword"
+db_host = "localhost"
+db_port = "5432"
+db_name = "GYK2Northwind"
+```
 
 ### 4. API'yi Başlatma
-
 uvicorn main:app --reload
 
+### 5. Swagger UI ile API’yi Test Et
 API varsayılan olarak http://127.0.0.1:8000 adresinde yayına girer.
 
 ---
@@ -179,13 +181,8 @@ API varsayılan olarak http://127.0.0.1:8000 adresinde yayına girer.
 ## API Kullanımı
 API'yi test etmek için Swagger UI'yi veya Postman'i kullanabilirsiniz. Swagger UI, API dokümantasyonunu ve testini kolayca yapmanıza olanak sağlar.
 
-### Swagger UI:
-
-API dokümantasyonu otomatik olarak http://127.0.0.1:8000/docs adresinden erişilebilir.
-
-### /predict Endpoint (Postman)
-
-POST/predict
+### Satış Tahmini İsteği (Postman)
+####  Endpoint: POST /predict
 
 İstek (Örnek):
 
@@ -206,6 +203,11 @@ Yanıt:
     "predicted_sales": 15.0
 }
 ```
+
+## API Dokümantasyonu
+Swagger UI kullanarak tüm endpoint'leri interaktif bir şekilde görebilirsiniz:
+
+http://localhost:8000/docs
 
 ---
 
