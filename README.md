@@ -163,6 +163,12 @@ Proje tamamlanmıştır ve tahmin için kullanıma hazırdır. Yeni iyileştirme
 
 ## Teşekkürler
 
+Bu projede katkı sağlayan tüm ekip arkadaşlarıma teşekkür ederim:
+
+- Öznur Sak
+- Nilgün Demirkaya
+- Ebru Akın
+
 Bu projeyi incelediğiniz için teşekkür ederim!
 
 Her türlü geri bildirim ve öneriye açığım. 😊
