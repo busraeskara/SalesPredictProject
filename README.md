@@ -173,7 +173,7 @@ Bu projeyi incelediğiniz için teşekkür ederim!
 
 Her türlü geri bildirim ve öneriye açığım. 😊
 
-🤝Katkıda bulunmak isterseniz:
+## 🤝Katkıda bulunmak isterseniz:
 1. Forklayın
 2. Yeni bir branch oluşturun
 3. Değişiklikleri yapın
