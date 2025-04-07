@@ -165,7 +165,7 @@ Proje tamamlanmıştır ve tahmin için kullanıma hazırdır. Yeni iyileştirme
 
 Bu projede katkı sağlayan tüm ekip arkadaşlarıma teşekkür ederim:
 
-- Öznur Sak
+- Öznur Kocacık Sak
 - Nilgün Demirkaya
 - Ebru Akın
 
