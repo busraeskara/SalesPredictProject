@@ -146,7 +146,7 @@ Bu dosya, veri işleme sırasında kullanılan yardımcı fonksiyonları içerir
 
 ##  Kurulum ve Çalıştırma
 
-### 1. Reposu Klonla
+### 1. Repozitoriyi Klonlayın
 
 git clone https://github.com/busraeskara/SalesPredictProject.git 
 
