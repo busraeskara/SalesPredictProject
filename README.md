@@ -1,16 +1,16 @@
 # SalesPredictProject
 
-Bu proje, Bu proje, **Northwind veritabanındaki** sipariş verilerini kullanarak ürün bazlı satış tahmini yapan bir makine öğrenmesi modelini REST API aracılığıyla erişilebilir hale getirmektedir. Dış sistemler bu API'yi kullanarak belirli ürünlere ait satış tahminleri alabilir. Python, FastAPI, PostgreSQL, scikit-learn gibi modern araçlar kullanılarak geliştirilmiştir. API, gelecekteki ürün taleplerini tahmin ederek işletmelerin daha iyi kararlar almasını hedefler.
+Bu proje, **Northwind veritabanındaki** sipariş verilerini kullanarak ürün bazlı satış tahmini yapan bir makine öğrenmesi modelini REST API aracılığıyla erişilebilir hale getirmektedir. Dış sistemler bu API'yi kullanarak belirli ürünlere ait satış tahminleri alabilir. Python, FastAPI, PostgreSQL, scikit-learn gibi modern araçlar kullanılarak geliştirilmiştir. API, gelecekteki ürün taleplerini tahmin ederek işletmelerin daha iyi kararlar almasını hedefler.
 
 ---
 
 ## Özellikler
 
-- Ürün geçmiş verilerine göre satış tahmini yapar  
-- RESTful API mimarisi  
-- PostgreSQL veritabanı kullanımı  
+- Ürün geçmiş verilerine göre satış tahmini yapar.
+- RESTful API mimarisi ile erişilebilir.
+- PostgreSQL veritabanı kullanımı.  
 - Model eğitimi ve tahmin işlemleri  
-- Swagger UI üzerinden API dokümantasyonu  
+- Swagger UI üzerinden API dokümantasyonu sağlar.
 
 ---
 
@@ -22,7 +22,8 @@ Bu proje, Bu proje, **Northwind veritabanındaki** sipariş verilerini kullanara
 - SQLAlchemy  
 - PostgreSQL
 - Pydantic
-- Pandas, NumPy
+- Pandas, NumPy, Joblib
+- Uvicorn
 - DecisionTreeRegressor
 - Swagger UI / Postman (API dokümantasyonu)
 
@@ -176,12 +177,13 @@ API varsayılan olarak http://127.0.0.1:8000 adresinde yayına girer.
 ---
 
 ## API Kullanımı
+API'yi test etmek için Swagger UI'yi veya Postman'i kullanabilirsiniz. Swagger UI, API dokümantasyonunu ve testini kolayca yapmanıza olanak sağlar.
 
 ### Swagger UI:
 
 API dokümantasyonu otomatik olarak http://127.0.0.1:8000/docs adresinden erişilebilir.
 
-### /predict Endpoint
+### /predict Endpoint (Postman)
 
 POST/predict
 
