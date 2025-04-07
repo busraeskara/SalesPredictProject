@@ -90,6 +90,6 @@ Uygulama içi hatalar logging modülü ile loglanır.
 
 ### 1. Reposu Klonla
 
-```bash
+
 git clone https://github.com/busraeskara/SalesPredictProject.git
 cd SalesPredictProject
