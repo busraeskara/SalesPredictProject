@@ -30,19 +30,61 @@ Bu proje, Bu proje, **Northwind veritabanındaki** sipariş verilerini kullanara
 
 ## Proje Yapısı
 
-```bash
-SalesPredictProject/
-├── data/                    # Northwind veritabanı ve veri işleme dosyaları
-│
-├── model/                   # Model eğitimi ve kayıt işlemleri
-│
-├── docs/                    # Dokümantasyon dosyaları (Swagger / Postman)
-│   ├── swagger.yaml         # Swagger API tanımı (isteğe bağlı)
-│   └── SalesPredict.postman_collection.json  # Postman koleksiyonu
-│
-├── requirements.txt         # Proje bağımlılıkları
-├── README.md                # Bu dosya
-└── .gitignore
+<h3>main.py<h3>– API ve Model Entegrasyon Katmanı
+Bu dosya, projenin ana uygulama dosyasıdır ve aşağıdaki temel işlevleri yerine getirir:
+
+🚀 FastAPI Sunucusunu Başlatır
+FastAPI framework'ü ile RESTful API endpoint'lerini tanımlar.
+
+API dökümantasyonu için Swagger UI desteklidir (/docs altında otomatik olarak erişilebilir).
+
+🧠 Makine Öğrenmesi Modeli
+Northwind verilerinden ürün bazlı geçmiş sipariş verilerini kullanarak satış tahmin modeli (Decision Tree Regressor) eğitir.
+
+Eğitim, @app.post("/train_model") endpoint’i ile tetiklenebilir.
+
+Eğitim verisi için:
+
+Sipariş, sipariş detayları ve ürünler tabloları birleştirilir.
+
+Zaman, ay, haftanın günü gibi yeni özellikler çıkarılır.
+
+Veriler StandardScaler ile ölçeklenir.
+
+Eğitilen model .pkl formatında diske kaydedilir ve @app.post("/predict") endpoint'i ile tahmin yapılabilir.
+
+📦 API Endpoint’leri
+Aşağıdaki kaynaklar için GET endpoint'leri sağlar:
+
+/orders: Siparişleri listeler.
+
+/order_details: Sipariş detaylarını listeler.
+
+/products: Ürünleri listeler.
+
+/customers: Müşterileri listeler.
+
+/categories: Ürün kategorilerini listeler.
+
+📊 Tahmin ve Özet Endpoint’leri
+/predict: Ürün ve tarih bilgisine göre satış tahmini döner.
+
+/monthly_sales_summary: Aylık toplam satış ve gelir verilerini döner.
+
+/product_sales_summary: Ürün bazlı satış ve gelir özetlerini verir.
+
+🧱 Özellik Mühendisliği
+Zaman serisi temelli değişkenler oluşturulur: ay, haftanın günü, hafta sonu vb.
+
+Ürün fiyatları için kategorik değişken (low, medium, high) oluşturulur.
+
+Müşteri segmentasyonu yapılır: her müşterinin en çok alışveriş yaptığı ürün kategorisi belirlenir (favorite_category).
+
+🔐 Hata Yönetimi ve Loglama
+Her endpoint için hata yönetimi yapılır.
+
+Uygulama içi hatalar logging modülü ile loglanır.
+
 
 ## ⚙️ Kurulum ve Çalıştırma
 
