@@ -31,7 +31,7 @@ Bu proje, **Northwind veritabanındaki** sipariş verilerini kullanarak ürün b
 
 ## Proje Yapısı
 
-SalesPredictProject/ ├── main.py ├── database.py ├── config.py ├── models.py ├── schemas.py ├── utils.py ├── requirements.txt ├── README.md
+SalesPredictProject/ ├── main.py ├── database.py ├── config.py ├── models.py ├── schemas.py ├── utils.py ├── requirements.txt ├── README.md ├── decision_tree_model.pkl ├── openapi.json
 
 ---
 
