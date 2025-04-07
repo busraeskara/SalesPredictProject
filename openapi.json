@@ -1,0 +1,666 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+      "title": "Northwind API",
+      "description": "Northwind API",
+      "version": "1.0"
+    },
+    "paths": {
+      "/orders": {
+        "get": {
+          "tags": [
+            "Siparişler"
+          ],
+          "summary": "Sipariş Listesi",
+          "description": "Müşterilerin siparişlerini listeler.",
+          "operationId": "get_orders_orders_get",
+          "responses": {
+            "200": {
+              "description": "Successful Response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "items": {
+                      "$ref": "#/components/schemas/Order"
+                    },
+                    "type": "array",
+                    "title": "Response Get Orders Orders Get"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/order_details": {
+        "get": {
+          "tags": [
+            "Sipariş Detayı"
+          ],
+          "summary": "Sipariş Detayı",
+          "description": "Siparişlerin detaylarını listeler.",
+          "operationId": "get_order_details_order_details_get",
+          "responses": {
+            "200": {
+              "description": "Successful Response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "items": {
+                      "$ref": "#/components/schemas/OrderDetail"
+                    },
+                    "type": "array",
+                    "title": "Response Get Order Details Order Details Get"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/products": {
+        "get": {
+          "tags": [
+            "Ürünler"
+          ],
+          "summary": "Ürün Listesi",
+          "description": "Ürünleri listeler.",
+          "operationId": "get_products_products_get",
+          "responses": {
+            "200": {
+              "description": "Successful Response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "items": {
+                      "$ref": "#/components/schemas/Product"
+                    },
+                    "type": "array",
+                    "title": "Response Get Products Products Get"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/customers": {
+        "get": {
+          "tags": [
+            "Müşteriler"
+          ],
+          "summary": "Müşteri Listesi",
+          "description": "Müşterileri listeler.",
+          "operationId": "get_customers_customers_get",
+          "responses": {
+            "200": {
+              "description": "Successful Response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "items": {
+                      "$ref": "#/components/schemas/Customer"
+                    },
+                    "type": "array",
+                    "title": "Response Get Customers Customers Get"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/categories": {
+        "get": {
+          "tags": [
+            "Kategoriler"
+          ],
+          "summary": "Kategori Listesi",
+          "description": "Ürün kategorilerini listeler.",
+          "operationId": "get_categories_categories_get",
+          "responses": {
+            "200": {
+              "description": "Successful Response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "items": {
+                      "$ref": "#/components/schemas/Category"
+                    },
+                    "type": "array",
+                    "title": "Response Get Categories Categories Get"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/predict": {
+        "post": {
+          "tags": [
+            "Tahmin"
+          ],
+          "summary": "Satış Tahmini",
+          "description": "Verilen ürün ve tarih için satış tahmini yapar.",
+          "operationId": "predict_sales_predict_post",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PredictSalesRequest"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "Successful Response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PredictSalesResponse"
+                  }
+                }
+              }
+            },
+            "422": {
+              "description": "Validation Error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/HTTPValidationError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/train_model": {
+        "post": {
+          "tags": [
+            "Model Eğitimi"
+          ],
+          "summary": "Model Eğitimi",
+          "description": "Modeli eğitir ve kaydeder.",
+          "operationId": "train_model_train_model_post",
+          "responses": {
+            "200": {
+              "description": "Successful Response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/TrainModelResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/monthly_sales_summary": {
+        "get": {
+          "tags": [
+            "Satış Özeti"
+          ],
+          "summary": "Aylık Satış Özeti",
+          "description": "Aylık satış özetini döndürür.",
+          "operationId": "get_monthly_sales_summary_monthly_sales_summary_get",
+          "responses": {
+            "200": {
+              "description": "Successful Response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "items": {
+                      "$ref": "#/components/schemas/MonthlySalesItem"
+                    },
+                    "type": "array",
+                    "title": "Response Get Monthly Sales Summary Monthly Sales Summary Get"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/product_sales_summary": {
+        "get": {
+          "tags": [
+            "Satış Özeti"
+          ],
+          "summary": "Ürün Bazlı Satış Özeti",
+          "description": "Ürün bazında satış özetini döndürür.",
+          "operationId": "get_product_sales_summary_product_sales_summary_get",
+          "responses": {
+            "200": {
+              "description": "Successful Response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "items": {
+                      "$ref": "#/components/schemas/ProductSalesItem"
+                    },
+                    "type": "array",
+                    "title": "Response Get Product Sales Summary Product Sales Summary Get"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "Category": {
+          "properties": {
+            "category_id": {
+              "type": "integer",
+              "title": "Category Id"
+            },
+            "category_name": {
+              "type": "string",
+              "title": "Category Name"
+            },
+            "description": {
+              "type": "string",
+              "title": "Description"
+            }
+          },
+          "type": "object",
+          "required": [
+            "category_id",
+            "category_name",
+            "description"
+          ],
+          "title": "Category"
+        },
+        "Customer": {
+          "properties": {
+            "customer_id": {
+              "type": "string",
+              "title": "Customer Id"
+            },
+            "company_name": {
+              "type": "string",
+              "title": "Company Name"
+            },
+            "contact_name": {
+              "type": "string",
+              "title": "Contact Name"
+            },
+            "contact_title": {
+              "type": "string",
+              "title": "Contact Title"
+            },
+            "address": {
+              "type": "string",
+              "title": "Address"
+            },
+            "city": {
+              "type": "string",
+              "title": "City"
+            },
+            "region": {
+              "type": "string",
+              "title": "Region"
+            },
+            "postal_code": {
+              "type": "string",
+              "title": "Postal Code"
+            },
+            "country": {
+              "type": "string",
+              "title": "Country"
+            },
+            "phone": {
+              "type": "string",
+              "title": "Phone"
+            },
+            "fax": {
+              "type": "string",
+              "title": "Fax"
+            }
+          },
+          "type": "object",
+          "required": [
+            "customer_id",
+            "company_name",
+            "contact_name",
+            "contact_title",
+            "address",
+            "city",
+            "region",
+            "postal_code",
+            "country",
+            "phone",
+            "fax"
+          ],
+          "title": "Customer"
+        },
+        "HTTPValidationError": {
+          "properties": {
+            "detail": {
+              "items": {
+                "$ref": "#/components/schemas/ValidationError"
+              },
+              "type": "array",
+              "title": "Detail"
+            }
+          },
+          "type": "object",
+          "title": "HTTPValidationError"
+        },
+        "MonthlySalesItem": {
+          "properties": {
+            "month": {
+              "type": "string",
+              "title": "Month"
+            },
+            "total_sales": {
+              "type": "number",
+              "title": "Total Sales"
+            },
+            "total_quantity": {
+              "type": "integer",
+              "title": "Total Quantity"
+            }
+          },
+          "type": "object",
+          "required": [
+            "month",
+            "total_sales",
+            "total_quantity"
+          ],
+          "title": "MonthlySalesItem"
+        },
+        "Order": {
+          "properties": {
+            "order_id": {
+              "type": "integer",
+              "title": "Order Id"
+            },
+            "customer_id": {
+              "type": "string",
+              "title": "Customer Id"
+            },
+            "employee_id": {
+              "type": "integer",
+              "title": "Employee Id"
+            },
+            "order_date": {
+              "type": "string",
+              "title": "Order Date"
+            },
+            "required_date": {
+              "type": "string",
+              "title": "Required Date"
+            },
+            "shipped_date": {
+              "type": "string",
+              "title": "Shipped Date"
+            },
+            "ship_via": {
+              "type": "integer",
+              "title": "Ship Via"
+            },
+            "freight": {
+              "type": "number",
+              "title": "Freight"
+            },
+            "ship_name": {
+              "type": "string",
+              "title": "Ship Name"
+            },
+            "ship_address": {
+              "type": "string",
+              "title": "Ship Address"
+            },
+            "ship_city": {
+              "type": "string",
+              "title": "Ship City"
+            },
+            "ship_region": {
+              "type": "string",
+              "title": "Ship Region"
+            },
+            "ship_postal_code": {
+              "type": "string",
+              "title": "Ship Postal Code"
+            },
+            "ship_country": {
+              "type": "string",
+              "title": "Ship Country"
+            }
+          },
+          "type": "object",
+          "required": [
+            "order_id",
+            "customer_id",
+            "employee_id",
+            "order_date",
+            "required_date",
+            "shipped_date",
+            "ship_via",
+            "freight",
+            "ship_name",
+            "ship_address",
+            "ship_city",
+            "ship_region",
+            "ship_postal_code",
+            "ship_country"
+          ],
+          "title": "Order"
+        },
+        "OrderDetail": {
+          "properties": {
+            "order_id": {
+              "type": "integer",
+              "title": "Order Id"
+            },
+            "product_id": {
+              "type": "integer",
+              "title": "Product Id"
+            },
+            "unit_price": {
+              "type": "number",
+              "title": "Unit Price"
+            },
+            "quantity": {
+              "type": "integer",
+              "title": "Quantity"
+            },
+            "discount": {
+              "type": "number",
+              "title": "Discount"
+            }
+          },
+          "type": "object",
+          "required": [
+            "order_id",
+            "product_id",
+            "unit_price",
+            "quantity",
+            "discount"
+          ],
+          "title": "OrderDetail"
+        },
+        "PredictSalesRequest": {
+          "properties": {
+            "order_date": {
+              "type": "string",
+              "title": "Order Date"
+            },
+            "product_id": {
+              "type": "integer",
+              "title": "Product Id"
+            },
+            "order_month": {
+              "type": "integer",
+              "title": "Order Month"
+            },
+            "order_dayofweek": {
+              "type": "integer",
+              "title": "Order Dayofweek"
+            },
+            "order_is_weekend": {
+              "type": "integer",
+              "title": "Order Is Weekend"
+            }
+          },
+          "type": "object",
+          "required": [
+            "order_date",
+            "product_id",
+            "order_month",
+            "order_dayofweek",
+            "order_is_weekend"
+          ],
+          "title": "PredictSalesRequest"
+        },
+        "PredictSalesResponse": {
+          "properties": {
+            "predicted_sales": {
+              "type": "number",
+              "title": "Predicted Sales"
+            }
+          },
+          "type": "object",
+          "required": [
+            "predicted_sales"
+          ],
+          "title": "PredictSalesResponse"
+        },
+        "Product": {
+          "properties": {
+            "product_id": {
+              "type": "integer",
+              "title": "Product Id"
+            },
+            "product_name": {
+              "type": "string",
+              "title": "Product Name"
+            },
+            "supplier_id": {
+              "type": "integer",
+              "title": "Supplier Id"
+            },
+            "category_id": {
+              "type": "integer",
+              "title": "Category Id"
+            },
+            "quantity_per_unit": {
+              "type": "string",
+              "title": "Quantity Per Unit"
+            },
+            "unit_price": {
+              "type": "number",
+              "title": "Unit Price"
+            },
+            "units_in_stock": {
+              "type": "integer",
+              "title": "Units In Stock"
+            },
+            "units_on_order": {
+              "type": "integer",
+              "title": "Units On Order"
+            },
+            "reorder_level": {
+              "type": "integer",
+              "title": "Reorder Level"
+            },
+            "discontinued": {
+              "type": "boolean",
+              "title": "Discontinued"
+            }
+          },
+          "type": "object",
+          "required": [
+            "product_id",
+            "product_name",
+            "supplier_id",
+            "category_id",
+            "quantity_per_unit",
+            "unit_price",
+            "units_in_stock",
+            "units_on_order",
+            "reorder_level",
+            "discontinued"
+          ],
+          "title": "Product"
+        },
+        "ProductSalesItem": {
+          "properties": {
+            "product_id": {
+              "type": "integer",
+              "title": "Product Id"
+            },
+            "total_sales": {
+              "type": "number",
+              "title": "Total Sales"
+            },
+            "total_quantity": {
+              "type": "integer",
+              "title": "Total Quantity"
+            }
+          },
+          "type": "object",
+          "required": [
+            "product_id",
+            "total_sales",
+            "total_quantity"
+          ],
+          "title": "ProductSalesItem"
+        },
+        "TrainModelResponse": {
+          "properties": {
+            "message": {
+              "type": "string",
+              "title": "Message"
+            }
+          },
+          "type": "object",
+          "required": [
+            "message"
+          ],
+          "title": "TrainModelResponse"
+        },
+        "ValidationError": {
+          "properties": {
+            "loc": {
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "integer"
+                  }
+                ]
+              },
+              "type": "array",
+              "title": "Location"
+            },
+            "msg": {
+              "type": "string",
+              "title": "Message"
+            },
+            "type": {
+              "type": "string",
+              "title": "Error Type"
+            }
+          },
+          "type": "object",
+          "required": [
+            "loc",
+            "msg",
+            "type"
+          ],
+          "title": "ValidationError"
+        }
+      }
+    }
+  }
