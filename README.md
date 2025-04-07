@@ -147,18 +147,21 @@ Bu dosya, veri işleme sırasında kullanılan yardımcı fonksiyonları içerir
 ##  Kurulum ve Çalıştırma
 
 ### 1. Reposu Klonlama
+```code
 git clone https://github.com/busraeskara/SalesPredictProject.git 
 
 cd SalesPredictProject
+```
 
 ### 2. Ortamı Hazırlama
 Python 3.9+ yüklü olmalıdır.
-
+```code
 python -m venv venv
 
 source venv/bin/activate  # Windows: venv\Scripts\activate
 
 pip install -r requirements.txt
+```
 
 ### 3. Veritabanını Kurma
 PostgreSQL üzerinde bir veritabanı oluştur ve bağlantı bilgilerini .env dosyasına ekle:
@@ -171,10 +174,12 @@ db_name = "GYK2Northwind"
 ```
 
 ### 4. API'yi Başlatma
+```code
 uvicorn main:app --reload
+```
 
 ### 5. Swagger UI ile API’yi Test Et
-API varsayılan olarak http://127.0.0.1:8000 adresinde yayına girer.
+API varsayılan olarak http://localhost:8000/docs adresinde yayına girer.
 
 ---
 
