@@ -102,7 +102,7 @@ source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 3. Veritabanını Ayarları
+### 3. Veritabanı Ayarları
 .env dosyası oluşturun ve içerisine şunları yazın:
 ```env
 db_user = postgres
@@ -147,7 +147,6 @@ Yanıt:
     "predicted_sales": 15.0
 }
 ```
-Swagger veya Postman ile kolayca test edebilirsiniz.
 
 ## 📌 Proje Durumu
 
