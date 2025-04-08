@@ -122,10 +122,17 @@ uvicorn main:app --reload
 
 ---
 
-## API Kullanımı
-API'yi test etmek için Swagger UI'yi veya Postman'i kullanabilirsiniz. Swagger UI, API dokümantasyonunu ve testini kolayca yapmanıza olanak sağlar.
+## API Dokümantasyonu ve Kullanımı
+API'yi test etmek için Swagger UI'yi veya Postman'i kullanabilirsiniz. Swagger UI, API dokümantasyonunu ve testini kolayca yapmanıza olanak sağlar. Swagger UI kullanarak tüm endpoint'leri interaktif bir şekilde görebilirsiniz:
 
-### Tahmin Endpoint'i 
+![Swagger UI](./swagger_screenshot1.PNG)
+
+![Swagger UI](./swagger_screenshot2.PNG)
+
+![Swagger UI](./swagger_screenshot3.PNG)
+
+
+### Tahmin Endpoint'i (Postman)
 ####  Endpoint: POST /predict
 
 İstek (Örnek):
