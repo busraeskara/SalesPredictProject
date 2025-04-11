@@ -1,4 +1,4 @@
-# 📈 SalesPredictProject
+# SalesPredictProject
 
 Bu proje, **Northwind veritabanındaki** sipariş verilerini kullanarak ürün bazlı satış tahmini yapan bir makine öğrenmesi modelini REST API aracılığıyla erişilebilir hale getirmektedir. Dış sistemler bu API'yi kullanarak belirli ürünlere ait satış tahminleri alabilir. Python, FastAPI, PostgreSQL, scikit-learn gibi modern araçlar kullanılarak geliştirilmiştir. 
 
@@ -118,7 +118,7 @@ uvicorn main:app --reload
 ```
 
 ### 5. Swagger UI ile Test Edin
-📌 http://localhost:8000/docs
+ http://localhost:8000/docs
 
 ---
 
@@ -155,7 +155,7 @@ Yanıt:
 }
 ```
 
-## 📌 Proje Durumu
+## Proje Durumu
 
 Proje tamamlanmıştır ve tahmin için kullanıma hazırdır. Yeni iyileştirmeler ve model alternatifleri eklenebilir
 
